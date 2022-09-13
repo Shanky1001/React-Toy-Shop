@@ -1,0 +1,55 @@
+.productCardContainer {
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 23rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+h3 {
+    padding: 1rem;
+    flex: 1;
+    font-size: 20px;
+}
+
+h4 .span {
+    text-decoration: line-through !important;
+    color: gray;
+    text-decoration-color: var(--black);
+}
+
+.discount {
+    padding-left: 1rem;
+    color: rgb(21, 245, 21);
+}
+
+.bag {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: .5rem;
+    width: 90%;
+    justify-content: center;
+    border-radius: .5rem;
+    border: none;
+    color: var(--black);
+    box-shadow: var(--shadow);
+}
+.bag:hover{
+    background-color: rgb(65, 212, 65);
+}
+
+.fav {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    font-size: 30px !important;
+    cursor: pointer;
+}

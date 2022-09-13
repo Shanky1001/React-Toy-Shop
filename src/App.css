@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Combo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none !important;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Combo', sans-serif;
+}
+
+:root {
+    --red: #FF1E00;
+    --blue: #3120E0;
+    --white: #fff;
+    --black: #000;
+    --shadow:  inset 0px -13px 106px -56px rgba(219,28,28,1);
+}
+
+.darkTheme {
+    --red: #be2814;
+    --blue: #533483;
+    --white: #000;
+    --black: #FFF;
+    --shadow: inset 0px -13px 106px -56px rgba(219,28,28,1);
+}
+
+.app {
+    background-color: var(--white);
+    color: var(--black);
+}
