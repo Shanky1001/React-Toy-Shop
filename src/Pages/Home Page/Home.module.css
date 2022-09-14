@@ -14,7 +14,7 @@
 }
 
 .shopByAge {
-    padding: 1rem 0;
+    padding: 1.5rem;
     background-color: var(--white);
     color: var(--black);
 }
@@ -27,14 +27,15 @@
     font-family: 'Combo' !important;
 }
 
-.trending{
+.trending {
     width: 100%;
-    padding: 1rem 0;
+    padding: 2rem 0 3rem 0;
     color: var(--black);
     background-color: var(--red);
 }
-.trending h1{
-    padding: 1.5rem 0;
+
+.trending h1 {
+    padding: 3rem 0;
     text-align: center;
     font-size: 3rem;
 }
@@ -42,6 +43,211 @@
 .trendingList {
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: repeat(4, minmax(15rem, 1fr));
+    grid-template-columns: repeat(5, minmax(15rem, 1fr));
     gap: 2rem 1rem;
+}
+
+.shopByCategory {
+    padding: 2rem;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.shopByCategory h1 {
+    padding: 2.5rem 0;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.lego {
+    padding: 2rem;
+    background-color: var(--white);
+    color: black;
+}
+
+.legoDiv {
+    width: 100%;
+    padding: 2rem 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: yellow;
+    flex-wrap: wrap;
+}
+
+.legoText {
+    flex: 1;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.button {
+    padding: 1rem 2rem;
+    font-size: 20px;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+.legoText img {
+    width: 15%;
+}
+
+.legoText p {
+    margin: 3rem 0 2rem 0;
+    font-size: 20px;
+    line-height: 2rem;
+}
+
+.legoText h3 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.legoImg {
+    flex: .8;
+}
+
+.legoImg img {
+    margin-top: 2%;
+    width: 100%;
+    height: 400px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.legoToys {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.legoToys img {
+    width: 100%;
+    height: 450px;
+}
+
+.specialToys {
+    width: 100%;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 3rem;
+    background-color: var(--white);
+}
+
+.video {
+    flex: 3;
+}
+
+.video video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--black);
+}
+
+.specialToysText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    color: var(--black);
+}
+
+.logo {
+    font-family: 'Ms Madi' !important;
+    color: var(--red);
+    font-size: 45px !important;
+    font-weight: 600 !important;
+}
+
+.policy {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    background-color: var(--red);
+    color: var(--white);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 16px;
+}
+
+@media screen and (max-width:1300px) {
+    .trendingList {
+        padding: 0 1rem;
+        grid-template-columns: repeat(4, minmax(15rem, 1fr));
+    }
+
+
+}
+
+@media screen and (max-width:1080px) {
+    .trendingList {
+        grid-template-columns: repeat(3, minmax(10rem, 1fr));
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .specialToys {
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .specialToysText {
+        height: 40vh;
+    }
+
+    .legoDiv {
+        flex-direction: column;
+    }
+
+    .legoText {
+        flex: 1;
+        padding: 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .legoImg {
+        flex: 1;
+    }
+
+    .legoToys img {
+        width: 90%;
+    }
+    .policy {
+       flex-direction: column;
+    }
+    .policy h1{
+        padding: .5rem 3rem;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .trendingList {
+        grid-template-columns: repeat(2, minmax(15rem, 1fr));
+    }
+}
+
+@media screen and (max-width:550px) {
+    .trendingList {
+        grid-template-columns: repeat(1, minmax(15rem, 1fr));
+    }
+
+    .legoToys {
+        display: none;
+    }
+
+    .legoImg img {
+        width: 90%;
+    }
 }

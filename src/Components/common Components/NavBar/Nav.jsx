@@ -1,13 +1,13 @@
 import { Close, DarkMode, LocalMall, Login, Logout, Menu, PersonAdd, WbSunny } from '@mui/icons-material';
 import { Badge, Tooltip, Typography } from '@mui/material';
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { Context } from '../../../App';
 import Style from './Nav.module.css'
 import '../../../App.css'
 
 const Nav = () => {
-  const { state: { cart }, logged, setLogged} = Context();
+  const { state: { cart, wishlist }, logged, setLogged } = Context();
 
   const [toggle, setToggle] = useState(false);
   const [theme, setTheme] = useState(false)
@@ -32,14 +32,14 @@ const Nav = () => {
         <nav className={Style.navbar}>
           <Link to="/"><h1 >Home</h1></Link>
           <Link to="/about"><h1>About</h1></Link>
-          <Link to="/menu"><h1>Our Menu</h1></Link>
+          <Link to="/menu"><h1>Products</h1></Link>
           <a href='#footerContainer'><h1>Contact</h1></a>
         </nav>
         <div className={Style.options}>
           {logged.id > 0 ? <>
             <Tooltip arrow title="logout">
               <h1 onClick={() => setLogged({})} ><Logout sx={{ fontSize: "30px" }} /></h1></Tooltip>
-              <Typography variant='h2' sx={{ fontSize: "23px",fontFamily:"Combo" }}> {logged.name}</Typography>
+            <Typography variant='h2' sx={{ fontSize: "23px", fontFamily: "Combo" }}> {logged.name}</Typography>
           </>
             : <>
               <Tooltip arrow title="login">
@@ -64,11 +64,11 @@ const Nav = () => {
             <h1 onClick={(e) => { setToggle(false) }}> <Close className={Style.close} /> </h1>
             <Link to="/"><h1 onClick={hideNav}>Home</h1></Link>
             <Link to="/"><h1 onClick={hideNav}>About</h1></Link>
-            <Link to="/menu"><h1 onClick={hideNav}>Menu</h1></Link>
+            <Link to="/menu"><h1 onClick={hideNav}>Products</h1></Link>
             <Link to="/"><h1 onClick={hideNav}>Contact</h1></Link>
             {logged.id > 0 ? <>
               <Tooltip arrow title="logout">
-                <h1 onClick={()=>setLogged({})} ><Logout sx={{ fontSize: "30px" }} /> {logged.name}</h1></Tooltip>
+                <h1 onClick={() => setLogged({})} ><Logout sx={{ fontSize: "30px" }} /> {logged.name}</h1></Tooltip>
             </>
               : <>
                 <Tooltip arrow title="login">
@@ -92,4 +92,4 @@ const Nav = () => {
   )
 }
 
-export default Nav
+export default memo(Nav)

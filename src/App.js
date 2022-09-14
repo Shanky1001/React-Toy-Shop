@@ -1,5 +1,5 @@
 
-import { createContext, useContext, useReducer, useState } from 'react';
+import { createContext, memo, useContext, useReducer, useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Alert, Button, Dialog, DialogActions, DialogTitle, Snackbar } from '@mui/material';
@@ -38,7 +38,8 @@ function App() {
   const [state, dispatch] = useReducer(cartReducer, {
     products: toys,
     cart: [],
-    wishlist: []
+    wishlist: [],
+    totalDiscount: 0
   });
 
   const [productState, productDispatch] = useReducer(productReducer, {
@@ -113,7 +114,7 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);
 
 export const Context = () => {
   return useContext(context)

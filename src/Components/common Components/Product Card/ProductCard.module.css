@@ -1,20 +1,21 @@
 .productCardContainer {
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    height: 23rem;
     background-color: white;
     border-radius: 5px;
     box-shadow: var(--shadow);
     position: relative;
 }
-
+.productCardContainer img{
+    width: 80%;
+}
 h3 {
-    padding: 1rem;
+    padding: .5rem;
     flex: 1;
     font-size: 20px;
 }
@@ -42,14 +43,33 @@ h4 .span {
     color: var(--black);
     box-shadow: var(--shadow);
 }
-.bag:hover{
+
+.bag:hover {
     background-color: rgb(65, 212, 65);
 }
 
 .fav {
+    visibility: hidden;
     position: absolute;
     right: 1%;
     top: 1%;
     font-size: 30px !important;
     cursor: pointer;
+
+}
+
+.productCardContainer:hover .fav {
+    visibility: visible;
+    animation-name: fav;
+    animation-duration: 1s;
+}
+
+@keyframes fav {
+    0% {
+        right: -4%
+    }
+
+    100% {
+        right: 1%;
+    }
 }
