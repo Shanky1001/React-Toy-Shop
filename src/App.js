@@ -10,7 +10,7 @@ import Products from './Pages/Products Page/Products';
 import Checkout from './Pages/Checkout Page/Checkout';
 import Login from './auth/Login/Login';
 import Sign from './auth/Sign/Sign';
-// import Footer from './Components/common Components/Footer/Footer';
+import Footer from './Components/common Components/Footer/Footer';
 import Details from './Pages/Details Page/Details';
 import { cartReducer, productReducer } from './Reducer/Reducer';
 import toys from './Assests/Product.json'
@@ -85,7 +85,7 @@ function App() {
             <Route path='product/:ID' element={<Details />} />
             <Route path='menu/product/:ID' element={<Details />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </Router>
 
 
