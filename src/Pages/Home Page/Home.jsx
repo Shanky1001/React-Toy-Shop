@@ -105,7 +105,7 @@ const Home = () => {
 
       <div className={styles.specialToys}>
         <div className={styles.video}>
-          <video src={video} alt='special toys' controls poster={'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f6636ace-c570-46b7-a5b7-faba1cc2add1/de2av2q-2aa5734a-0a0a-40ec-a0c3-b614b1c63a2f.jpg/v1/fill/w_700,h_301,q_70,strp/laferrari_by_alberichpotter_de2av2q-350t.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjIwIiwicGF0aCI6IlwvZlwvZjY2MzZhY2UtYzU3MC00NmI3LWE1YjctZmFiYTFjYzJhZGQxXC9kZTJhdjJxLTJhYTU3MzRhLTBhMGEtNDBlYy1hMGMzLWI2MTRiMWM2M2EyZi5qcGciLCJ3aWR0aCI6Ijw9MTQ0MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.raYLYtA7LqzTG-FotOUOUxRDYEpzNPw4PsGfCipxKnk'} />
+          <video src={video} alt='special toys' controls poster={'https://diecastsociety.com/wp-content/uploads/2020/10/bbr_laferrari11.jpg'} />
         </div>
         <div className={styles.specialToysText}>
           <h1 className={styles.logo}> Hamleys </h1>

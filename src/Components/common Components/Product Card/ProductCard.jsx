@@ -6,7 +6,7 @@ import style from './ProductCard.module.css'
 
 
 const ProductCard = ({ val }) => {
-  const { state: { cart, totalDiscount }, dispatch, setOpenSnack } = Context();
+  const { state: { cart, wishlist , totalDiscount,total }, dispatch, setOpenSnack } = Context();
   const [discount, setDiscount] = useState(0);
   // Calculating random discount value
   useLayoutEffect(() => {
@@ -15,11 +15,17 @@ const ProductCard = ({ val }) => {
 
   return (
     <div className={style.productCardContainer}>
-      <Favorite className={style.fav} onClick={()=>{
+      {  wishlist.some((p)=> p.id === val.id ) ? <Favorite  sx={{color:"red"}} className={style.fav} onClick={()=>{
+        dispatch({
+          type:"removeFromWishlist",payload:val.id
+        })
+        setOpenSnack({ open: true, html: `${val.title} is removed from Wishlist`, severity: "success", time: "1000" })
+      }} />    : <Favorite className={style.fav} sx={{color:"var(--black)"}} onClick={()=>{
         dispatch({
           type:"addToWishlist",payload:val
         })
-      }} />
+        setOpenSnack({ open: true, html: `${val.title} is added to Wishlist`, severity: "success", time: "1000" })
+      }} />   }
       <img src={val.img} alt={val.title}  />
       <h3> {val.title} </h3>
       <h4> <span className={style.span}>₹  {discount}
@@ -27,16 +33,16 @@ const ProductCard = ({ val }) => {
 
       {cart.some((p) => val.id === p.id) ? <button className={style.bag} onClick={() => {
         dispatch({
-          type: "removeFromCart", payload: { id: val.id, discount: totalDiscount - (discount - val.price) }
+          type: "removeFromCart", payload: { id: val.id, discount: totalDiscount - (discount - val.price),total: total-val.price }
         })
-        setOpenSnack({ open: true, html: `${val.title} is added to cart`, severity: "success", time: "800" })
+        setOpenSnack({ open: true, html: `${val.title} is removed from cart`, severity: "success", time: "1000" })
       }}>  <ShoppingBag sx={{ fontSize: "25px" }} />  <Typography variant='h6' fontSize={'18px'} > Remove from bag </Typography> </button> : <button className={style.bag} onClick={() => {
         dispatch({
           type: "addToCart", payload: {
             val: val, discount: totalDiscount + (discount - val.price)
           }
         })
-        setOpenSnack({ open: true, html: `${val.title} is removed from cart`, severity: "success", time: "800" })
+        setOpenSnack({ open: true, html: `${val.title} is added to cart`, severity: "success", time: "1000" })
       }}>  <ShoppingBag sx={{ fontSize: "25px" }} />  <Typography variant='h6' fontSize={'18px'} > Add to Bag </Typography> </button>}
 
 

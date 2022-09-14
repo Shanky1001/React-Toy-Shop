@@ -2,13 +2,16 @@ export const cartReducer = (state, action) => {
      switch (action.type) {
 
           case 'addToCart':
-               return { ...state, cart: [...state.cart, { ...action.payload.val, qty: 1 }], totalDiscount: action.payload.discount }
+               return { ...state, cart: [...state.cart, { ...action.payload.val, qty: 1 }], totalDiscount: action.payload.discount,total:action.payload.val.price }
 
           case 'removeFromCart':
-               return { ...state, cart: state.cart.filter((c) => c.id !== action.payload.id), totalDiscount: action.payload.discount }
+               return { ...state, cart: state.cart.filter((c) => c.id !== action.payload.id), totalDiscount: action.payload.discount,total:action.payload.price }
 
           case 'addToWishlist':
-               return { ...state, wishlist: [...state.wishlist,  action.payload ] }
+               return { ...state, wishlist: [...state.wishlist, action.payload] }
+
+          case 'removeFromWishlist':
+               return { ...state, wishlist: state.wishlist.filter((c) => (c.id !== action.payload)) }
 
           case "increaseQTY":
                return { ...state, cart: state.cart.filter((c) => (c.id === action.payload.id) ? c.qty = (action.payload.qty) : c.qty) }
@@ -27,19 +30,23 @@ export const cartReducer = (state, action) => {
 export const productReducer = (state, action) => {
      switch (action.type) {
           case 'byPrice':
-               return { ...state, sortPrice: action.payload }
+               return { ...state, byPrice: action.payload }
 
-          case 'byName':
-               return { ...state, sortName: action.payload }
+          case 'byRating':
+               return { ...state, byRating: action.payload }
 
-          case 'searchByName':
+          case 'byAge':
+               return { ...state, byAge: action.payload }
+
+          case 'search':
                return { ...state, search: action.payload }
 
           case 'clearFilters':
                return {
-                    search: "",
-                    sortPrice: false,
-                    sortName: false
+                    search: '',
+                    byAge: '',
+                    byPrice: '',
+                    byRating: ''
                }
 
           default:

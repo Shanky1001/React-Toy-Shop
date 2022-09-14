@@ -27,10 +27,8 @@ function App() {
   // Snackbar State
   const [openSnack, setOpenSnack] = useState({ open: false, html: "", severity: "success", time: "800" });
   // State for login
-  const [logged, setLogged] = useState({ id: 1, name: "Shanky" });
-  const [userName, setUserName] = useState("");
-  // state for counting total Value
-  const [total, setTotal] = useState(0);
+  const [logged, setLogged] = useState({});
+
   // State for Modal
   const [openModal, setOpenModal] = useState({ val: [], open: false })
 
@@ -39,13 +37,14 @@ function App() {
     products: toys,
     cart: [],
     wishlist: [],
-    totalDiscount: 0
+    totalDiscount: 0,
+    total:0
   });
 
   const [productState, productDispatch] = useReducer(productReducer, {
     search: "",
-    sortPrice: false,
-    sortName: false
+    byPrice: '',
+    byRating: '', byAge: ''
   })
 
 
@@ -69,7 +68,7 @@ function App() {
 
   return (
 
-    <context.Provider value={{ state, dispatch, productState, productDispatch, open, setOpen, openSnack, setOpenSnack, logged, setLogged, userName, setUserName, total, setTotal, openModal, setOpenModal }} >
+    <context.Provider value={{ state, dispatch, productState, productDispatch, open, setOpen, openSnack, setOpenSnack, logged, setLogged, openModal, setOpenModal }} >
 
       <div className="App" color='var(--white)'>
         <Router >
@@ -78,12 +77,12 @@ function App() {
             <Route path='/' exact element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/cart' element={<Cart />} />
-            <Route path='/menu' element={<Products />} />
+            <Route path='/products' element={<Products />} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/login' element={<Login />} />
             <Route path='/create' element={<Sign />} />
             <Route path='product/:ID' element={<Details />} />
-            <Route path='menu/product/:ID' element={<Details />} />
+            <Route path='products/product/:ID' element={<Details />} />
           </Routes>
           <Footer />
         </Router>

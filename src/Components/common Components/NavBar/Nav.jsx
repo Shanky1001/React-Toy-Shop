@@ -7,7 +7,7 @@ import Style from './Nav.module.css'
 import '../../../App.css'
 
 const Nav = () => {
-  const { state: { cart, wishlist }, logged, setLogged } = Context();
+  const { state: { cart}, logged, setLogged } = Context();
 
   const [toggle, setToggle] = useState(false);
   const [theme, setTheme] = useState(false)
@@ -31,9 +31,8 @@ const Nav = () => {
         </div>
         <nav className={Style.navbar}>
           <Link to="/"><h1 >Home</h1></Link>
-          <Link to="/about"><h1>About</h1></Link>
-          <Link to="/menu"><h1>Products</h1></Link>
-          <a href='#footerContainer'><h1>Contact</h1></a>
+          <Link to="/products"><h1>Products</h1></Link>
+          <Link to={'#'} onClick={()=>window.scrollTo(0, document.body.scrollHeight)}><h1 >Contact</h1></Link>
         </nav>
         <div className={Style.options}>
           {logged.id > 0 ? <>
@@ -63,8 +62,7 @@ const Nav = () => {
           {toggle && (<div className={Style.overlay}>
             <h1 onClick={(e) => { setToggle(false) }}> <Close className={Style.close} /> </h1>
             <Link to="/"><h1 onClick={hideNav}>Home</h1></Link>
-            <Link to="/"><h1 onClick={hideNav}>About</h1></Link>
-            <Link to="/menu"><h1 onClick={hideNav}>Products</h1></Link>
+            <Link to="/products"><h1 onClick={hideNav}>Products</h1></Link>
             <Link to="/"><h1 onClick={hideNav}>Contact</h1></Link>
             {logged.id > 0 ? <>
               <Tooltip arrow title="logout">
