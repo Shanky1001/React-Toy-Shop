@@ -183,8 +183,6 @@
         padding: 0 1rem;
         grid-template-columns: repeat(4, minmax(15rem, 1fr));
     }
-
-
 }
 
 @media screen and (max-width:1080px) {

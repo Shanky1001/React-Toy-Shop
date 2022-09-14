@@ -62,17 +62,13 @@ const Products = () => {
 
   return (
     <div className={style.productsContainer}>
-      {/* <h1> Products </h1> */}
 
       {/* Filter Section starts --------------------------> */}
       <div className={style.filter}>
         <h1> {confirmed().length} products </h1>
 
-        <OutlinedInput startAdornment={
-          <InputAdornment position="start">
-            <Search sx={{ color: "var(--black)" }} />
-          </InputAdornment>
-        } placeholder="Search products" style={{ backgroundColor: "var(--white)", outline: "var(--black)", width: "500px", fontSize: "20px", borderRadius: "1rem", border: "none", caretColor: "var(--black)", color: "var(--black)" }} size='small' margin='none'
+        <OutlinedInput startAdornment={<InputAdornment position="start">   <Search sx={{ color: "var(--black)" }} />  </InputAdornment>} placeholder="Search products"
+          style={{ backgroundColor: "var(--white)", outline: "var(--black)", borderRadius: "1rem", border: "none", caretColor: "var(--black)", color: "var(--black)" }} size='small' margin='none'
           onChange={(e) => {
             productDispatch({
               type: 'search',
@@ -80,12 +76,14 @@ const Products = () => {
             })
           }} value={search} />
 
-        <button onClick={() => setOpen(true)} className={style.button}> Filter </button>
-        {(byAge !== '' || byPrice !== '' || byRating !== '' || search !== '') && <button onClick={() => {
-          productDispatch({
-            type: "clearFilters"
-          })
-        }} className={style.button}> Clear Filter </button>}
+        <div className={style.btn}>
+          <button onClick={() => setOpen(true)} className={style.button}> Filter </button>
+          {(byAge !== '' || byPrice !== '' || byRating !== '' || search !== '') && <button onClick={() => {
+            productDispatch({
+              type: "clearFilters"
+            })
+          }} className={style.button}> Clear Filter </button>}
+        </div>
         {/* Dialog for Filter ---------------------> */}
         <Dialog disableEscapeKeyDown open={open} onClose={() => setOpen(false)}>
           <DialogTitle>Filters</DialogTitle>
