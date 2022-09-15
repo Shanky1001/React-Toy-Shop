@@ -60,7 +60,7 @@
 
 
 @media screen and (max-width:900px) {
-    #signContainer{
+    .signContainer{
         width: 60%;
     }
     
@@ -68,7 +68,7 @@
 
 
 @media screen and (max-width:600px) {
-    #signContainer{
+    .signContainer{
         width: 90%;
     }
     .formContainer div {

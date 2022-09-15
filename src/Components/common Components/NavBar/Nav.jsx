@@ -31,10 +31,10 @@ const Nav = () => {
           <NavLink to="/" ><Typography variant='h1' className={Style.logo}> Hamleys </Typography></NavLink>
         </div>
         <nav className={Style.navbar}>
-          <NavLink exact='true' activeclassname='active' to="/"><h1>Home</h1></NavLink>
-          <NavLink exact='true' activeclassname='active' to="/products"><h1>Products</h1></NavLink>
-          <NavLink exact='true' activeclassname='active' to="/wishlist"><h1><Badge showZero color="secondary" badgeContent={wishlist.length}><pre>Wishlist  </pre></Badge></h1> </NavLink>
-          <NavLink  exact='true' activeclassname='active' to={'#'} onClick={() => window.scrollTo(0, document.body.scrollHeight)}><h1 >Contact</h1></NavLink>
+          <NavLink to="/"><h1>Home</h1></NavLink>
+          <NavLink to="/products"><h1>Products</h1></NavLink>
+          <NavLink to="/wishlist"><h1><Badge showZero color="secondary" badgeContent={wishlist.length}><pre>Wishlist  </pre></Badge></h1> </NavLink>
+          <NavLink  to={'#'} onClick={() => window.scrollTo(0, document.body.scrollHeight)}><h1 >Contact</h1></NavLink>
         </nav>
         <div className={Style.options}>
           {logged.id > 0 ? <>
@@ -65,8 +65,8 @@ const Nav = () => {
             <h1 onClick={(e) => { setToggle(false) }}> <Close className={Style.close} /> </h1>
             <NavLink to="/"><h1 onClick={hideNav}>Home</h1></NavLink>
             <NavLink to="/products"><h1 onClick={hideNav}>Products</h1></NavLink>
-            <NavLink to="/wishlist"><h1><Badge showZero color="secondary" badgeContent={wishlist.length}>Wishlist</Badge></h1> </NavLink>
-            <NavLink to="/"><h1 onClick={hideNav}>Contact</h1></NavLink>
+            <NavLink to="/wishlist"><h1 onClick={hideNav}><Badge showZero color="secondary" badgeContent={wishlist.length}>Wishlist</Badge></h1> </NavLink>
+            <NavLink to="#" onClick={() => window.scrollTo(0, document.body.scrollHeight)}><h1 onClick={hideNav}>Contact</h1></NavLink>
             {logged.id > 0 ? <>
               <Tooltip arrow title="logout">
                 <h1 onClick={() => setLogged({})} ><Logout sx={{ fontSize: "30px" }} /> {logged.name}</h1></Tooltip>
@@ -82,7 +82,7 @@ const Nav = () => {
             <div className={Style.optionsM} >
               <h1 onClick={dark} className={Style.themeSwitcher}> {theme ? <WbSunny sx={{ fontSize: "30px" }} /> : <DarkMode sx={{ fontSize: "30px" }} />} </h1>
               <Tooltip arrow title="cart">
-                <NavLink to="/cart" className={Style.cart} ><Badge showZero badgeContent={cart.length}  ><LocalMall sx={{ fontSize: "30px" }} /> </Badge><span></span></NavLink>
+                <NavLink to="/cart" className={Style.cart} onClick={hideNav} ><Badge showZero badgeContent={cart.length}  ><LocalMall sx={{ fontSize: "30px" }} /> </Badge><span></span></NavLink>
               </Tooltip>
             </div>
           </div>)}
