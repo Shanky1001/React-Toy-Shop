@@ -1,13 +1,14 @@
 import { Close, DarkMode, LocalMall, Login, Logout, Menu, PersonAdd, WbSunny } from '@mui/icons-material';
 import { Badge, Tooltip, Typography } from '@mui/material';
 import React, { memo, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Context } from '../../../App';
 import Style from './Nav.module.css'
 import '../../../App.css'
 
+
 const Nav = () => {
-  const { state: { cart}, logged, setLogged } = Context();
+  const { state: { cart, wishlist }, logged, setLogged } = Context();
 
   const [toggle, setToggle] = useState(false);
   const [theme, setTheme] = useState(false)
@@ -26,13 +27,14 @@ const Nav = () => {
   return (
     <div className={Style.navContainer}>
       <header className={Style.header}>
-        <div className={Style.logo}>
-          <Link to="/"><Typography variant='h1' className={Style.logo}> Hamleys </Typography></Link>
+        <div>
+          <NavLink to="/" ><Typography variant='h1' className={Style.logo}> Hamleys </Typography></NavLink>
         </div>
         <nav className={Style.navbar}>
-          <Link to="/"><h1 >Home</h1></Link>
-          <Link to="/products"><h1>Products</h1></Link>
-          <Link to={'#'} onClick={()=>window.scrollTo(0, document.body.scrollHeight)}><h1 >Contact</h1></Link>
+          <NavLink exact='true' activeClassName='active' to="/"><h1>Home</h1></NavLink>
+          <NavLink exact='true' activeClassName='active' to="/products"><h1>Products</h1></NavLink>
+          <NavLink exact='true' activeClassName='active' to="/wishlist"><h1><Badge showZero color="secondary" badgeContent={wishlist.length}><pre>Wishlist  </pre></Badge></h1> </NavLink>
+          <NavLink  exact='true' activeClassName='active' to={'#'} onClick={() => window.scrollTo(0, document.body.scrollHeight)}><h1 >Contact</h1></NavLink>
         </nav>
         <div className={Style.options}>
           {logged.id > 0 ? <>
@@ -42,16 +44,16 @@ const Nav = () => {
           </>
             : <>
               <Tooltip arrow title="login">
-                <Link to="/login"><h1 onClick={hideNav}> <Login fontSize='30px' />  </h1></Link>
+                <NavLink to="/login"><h1 onClick={hideNav}> <Login fontSize='30px' />  </h1></NavLink>
               </Tooltip>
               <Tooltip arrow title="create account">
-                <Link to="/create"><h1 onClick={hideNav}> <PersonAdd fontSize='30px' /></h1></Link>
+                <NavLink to="/create"><h1 onClick={hideNav}> <PersonAdd fontSize='30px' /></h1></NavLink>
               </Tooltip></>}
           <Tooltip arrow title="theme switcher">
             <h1 onClick={dark} className={Style.theme}> {theme ? <WbSunny className={Style.theme} /> : <DarkMode className={Style.theme} />} </h1>
           </Tooltip>
           <Tooltip arrow title="cart">
-            <Link to="/cart" className={Style.cart} ><Badge showZero badgeContent={cart.length}  ><LocalMall sx={{ fontSize: "30px" }} /> </Badge><span></span></Link>
+            <NavLink to="/cart" className={Style.cart} ><Badge showZero color="secondary" badgeContent={cart.length}  ><LocalMall sx={{ fontSize: "30px" }} /> </Badge><span></span></NavLink>
           </Tooltip>
         </div>
 
@@ -61,25 +63,26 @@ const Nav = () => {
           <Menu className={Style.menu} onClick={(e) => { setToggle(true) }} />
           {toggle && (<div className={Style.overlay}>
             <h1 onClick={(e) => { setToggle(false) }}> <Close className={Style.close} /> </h1>
-            <Link to="/"><h1 onClick={hideNav}>Home</h1></Link>
-            <Link to="/products"><h1 onClick={hideNav}>Products</h1></Link>
-            <Link to="/"><h1 onClick={hideNav}>Contact</h1></Link>
+            <NavLink to="/"><h1 onClick={hideNav}>Home</h1></NavLink>
+            <NavLink to="/products"><h1 onClick={hideNav}>Products</h1></NavLink>
+            <NavLink to="/wishlist"><h1><Badge showZero color="secondary" badgeContent={wishlist.length}>Wishlist</Badge></h1> </NavLink>
+            <NavLink to="/"><h1 onClick={hideNav}>Contact</h1></NavLink>
             {logged.id > 0 ? <>
               <Tooltip arrow title="logout">
                 <h1 onClick={() => setLogged({})} ><Logout sx={{ fontSize: "30px" }} /> {logged.name}</h1></Tooltip>
             </>
               : <>
                 <Tooltip arrow title="login">
-                  <Link to="/login"><h1 onClick={hideNav}> Login</h1></Link>
+                  <NavLink to="/login"><h1 onClick={hideNav}> Login</h1></NavLink>
                 </Tooltip>
                 <Tooltip arrow title="create account">
-                  <Link to="/create"><h1 onClick={hideNav}> Create Account </h1></Link>
+                  <NavLink to="/create"><h1 onClick={hideNav}> Create Account </h1></NavLink>
                 </Tooltip></>}
             <hr />
             <div className={Style.optionsM} >
               <h1 onClick={dark} className={Style.themeSwitcher}> {theme ? <WbSunny sx={{ fontSize: "30px" }} /> : <DarkMode sx={{ fontSize: "30px" }} />} </h1>
               <Tooltip arrow title="cart">
-                <Link to="/cart" className={Style.cart} ><Badge showZero badgeContent={cart.length}  ><LocalMall sx={{ fontSize: "30px" }} /> </Badge><span></span></Link>
+                <NavLink to="/cart" className={Style.cart} ><Badge showZero badgeContent={cart.length}  ><LocalMall sx={{ fontSize: "30px" }} /> </Badge><span></span></NavLink>
               </Tooltip>
             </div>
           </div>)}

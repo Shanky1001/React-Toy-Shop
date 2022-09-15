@@ -15,7 +15,7 @@
     padding: 1rem 2rem;
     position: sticky;
     top: 5.03rem;
-    z-index: 100;
+    z-index: 4;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -48,6 +48,17 @@
 .producting h1{
     padding: 3rem 0;
     text-align: center ;
+}
+.NoProduct{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.NoProduct img{
+    width: 400px;
+}
+.NoProduct h1{
+    font-size: 25px;
 }
 
 @media screen and (max-width:1300px) {

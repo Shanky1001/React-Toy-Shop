@@ -15,6 +15,7 @@ import Details from './Pages/Details Page/Details';
 import { cartReducer, productReducer } from './Reducer/Reducer';
 import toys from './Assests/Product.json'
 import Home from './Pages/Home Page/Home';
+import Wishlist from './Pages/WishList Page/Wishlist';
 
 
 
@@ -81,6 +82,7 @@ function App() {
             <Route path='/checkout' element={<Checkout />} />
             <Route path='/login' element={<Login />} />
             <Route path='/create' element={<Sign />} />
+            <Route path='/wishlist' element={<Wishlist/>} />
             <Route path='product/:ID' element={<Details />} />
             <Route path='products/product/:ID' element={<Details />} />
           </Routes>

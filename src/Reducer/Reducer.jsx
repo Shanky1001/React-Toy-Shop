@@ -22,6 +22,8 @@ export const cartReducer = (state, action) => {
           case 'clearCart':
                return { ...state, cart: [] }
 
+          case 'clearWishlist':
+               return {...state,wishlist:[]}
           default:
                return state;
      };
