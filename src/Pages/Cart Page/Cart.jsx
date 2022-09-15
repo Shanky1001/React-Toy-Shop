@@ -24,6 +24,7 @@ const Cart = () => {
         <div className={style.cartListContainer}>
           {cart.length === 0 ? <div className={style.emptyCartContainer}>
             <img src={EmptyCart} alt='Empty Cart' />
+            <h1>  No products in Your Cart </h1>
             <Link to="/products" className={style.continueShopping}><button>Continue Shopping <i className="fa-solid fa-bag-shopping" /></button></Link>
           </div>
             : <div className={style.cartList}> {cart.map((val) => <CartCard val={val} key={val.id} />)} </div>}

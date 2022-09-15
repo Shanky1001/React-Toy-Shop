@@ -5,15 +5,30 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import { Context } from '../../App';
 import ProductCard from '../../Components/common Components/Product Card/ProductCard';
 import video from '../../Assests/video.mp4'
-
 import styles from './Home.module.css'
 import { Adjust } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
-  const { state: { products } } = Context()
+  const navigate = useNavigate();
+
+  const { state: { products },productDispatch } = Context()
 
   const handleDragStart = (e) => e.preventDefault();
+
+  const filterAge = (value)=>{
+    productDispatch({
+      type: 'byAge',
+      payload: value
+    })
+    navigate('/products');
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
 
   const items1 = [
     <img src="https://hamleysgumlet.gumlet.io/banner/1662116494website%20banner-desktop.webp" onDragStart={handleDragStart} alt="presentation" width={'100%'} height={'500px'} />,
@@ -23,14 +38,14 @@ const Home = () => {
     <img src="https://hamleysgumlet.gumlet.io/banner/16594243144.webp" onDragStart={handleDragStart} alt="presentation" width={'100%'} height={'500px'} />,
   ];
 
-  const byAge = [
-    <img src="https://hamleysgumlet.gumlet.io/category/1662976752Artboard1.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} />,
-    <img src="https://hamleysgumlet.gumlet.io/category/1662978252Artboard2.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} />,
-    <img src="https://hamleysgumlet.gumlet.io/category/1662979883Artboard3.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} />,
-    <img src="https://hamleysgumlet.gumlet.io/category/1662979938Artboard4.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} />,
-    <img src="https://hamleysgumlet.gumlet.io/category/1662979990Artboard5.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} />,
-    <img src="https://hamleysgumlet.gumlet.io/category/1662980036Artboard6.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} />,
-    <img src="https://hamleysgumlet.gumlet.io/category/1662980092Artboard7.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} />,
+  const Age = [
+    <img src="https://hamleysgumlet.gumlet.io/category/1662976752Artboard1.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} onClick={()=> filterAge(1)} />,
+    <img src="https://hamleysgumlet.gumlet.io/category/1662978252Artboard2.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} onClick={()=> filterAge(3)} />,
+    <img src="https://hamleysgumlet.gumlet.io/category/1662979883Artboard3.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} onClick={()=> filterAge(5)} />,
+    <img src="https://hamleysgumlet.gumlet.io/category/1662979938Artboard4.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} onClick={()=> filterAge(7)} />,
+    <img src="https://hamleysgumlet.gumlet.io/category/1662979990Artboard5.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} onClick={()=> filterAge(9)} />,
+    <img src="https://hamleysgumlet.gumlet.io/category/1662980036Artboard6.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} onClick={()=> filterAge(12)} />,
+    <img src="https://hamleysgumlet.gumlet.io/category/1662980092Artboard7.webp" onDragStart={handleDragStart} alt="presentation" width={'90%'} height={'250px'} style={{ borderRadius: "8px", cursor: "pointer" }} onClick={()=> filterAge(13)} />,
   ]
 
   const byCategory = [
@@ -65,8 +80,8 @@ const Home = () => {
       </div>
 
       <div className={styles.shopByAge}>
-        <Typography variant='h2' className={styles.byAge}> Shop By Age </Typography>
-        <AliceCarousel mouseTracking items={byAge} autoPlay keyboardNavigation disableDotsControls disableButtonsControls animationDuration={'1500'} autoPlayInterval={"3000"} responsive={responsive} infinite />
+        <Typography variant='h2' className={styles.Age}> Shop By Age </Typography>
+        <AliceCarousel mouseTracking items={Age} autoPlay keyboardNavigation disableDotsControls disableButtonsControls animationDuration={'1500'} autoPlayInterval={"3000"} responsive={responsive} infinite />
       </div>
 
       <div className={styles.trending}>
