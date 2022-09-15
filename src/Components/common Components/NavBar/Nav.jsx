@@ -31,10 +31,10 @@ const Nav = () => {
           <NavLink to="/" ><Typography variant='h1' className={Style.logo}> Hamleys </Typography></NavLink>
         </div>
         <nav className={Style.navbar}>
-          <NavLink exact='true' activeClassName='active' to="/"><h1>Home</h1></NavLink>
-          <NavLink exact='true' activeClassName='active' to="/products"><h1>Products</h1></NavLink>
-          <NavLink exact='true' activeClassName='active' to="/wishlist"><h1><Badge showZero color="secondary" badgeContent={wishlist.length}><pre>Wishlist  </pre></Badge></h1> </NavLink>
-          <NavLink  exact='true' activeClassName='active' to={'#'} onClick={() => window.scrollTo(0, document.body.scrollHeight)}><h1 >Contact</h1></NavLink>
+          <NavLink exact='true' activeclassname='active' to="/"><h1>Home</h1></NavLink>
+          <NavLink exact='true' activeclassname='active' to="/products"><h1>Products</h1></NavLink>
+          <NavLink exact='true' activeclassname='active' to="/wishlist"><h1><Badge showZero color="secondary" badgeContent={wishlist.length}><pre>Wishlist  </pre></Badge></h1> </NavLink>
+          <NavLink  exact='true' activeclassname='active' to={'#'} onClick={() => window.scrollTo(0, document.body.scrollHeight)}><h1 >Contact</h1></NavLink>
         </nav>
         <div className={Style.options}>
           {logged.id > 0 ? <>

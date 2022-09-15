@@ -33,14 +33,15 @@ const CartCard = ({ val }) => {
               type: "decreaseQTY", payload: {
                 id: val.id,
                 qty: val.qty - 1,
-                total: total - val.price,
+                total: val.qty ===1 ? total : total-val.price,
               }
             })
           }} />
         </div>
         <div className={style.deleteItem}>
           <Tooltip title='delete from cart' placement="left">
-            <DeleteForever className={style.delete} onClick={() => { setOpen({ open: true, html: "Are your to delete this product from cart ?", type: "trash", value: val }) }} />
+            <DeleteForever className={style.delete} onClick={() => { 
+              setOpen({ open: true, html: "Are your to delete this product from cart ?", type: "trash", value: val }) }} />
           </Tooltip>
         </div>
       </div>

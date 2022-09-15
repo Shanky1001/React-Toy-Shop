@@ -5,7 +5,7 @@ export const cartReducer = (state, action) => {
                return { ...state, cart: [...state.cart, { ...action.payload.val, qty: 1 }], totalDiscount: action.payload.discount, total: action.payload.total }
 
           case 'removeFromCart':
-               return { ...state, cart: state.cart.filter((c) => c.id !== action.payload.id), totalDiscount: action.payload.discount, total: action.payload.price }
+               return { ...state, cart: state.cart.filter((c) => c.id !== action.payload.id), totalDiscount: action.payload.discount, total: action.payload.total }
 
           case 'addToWishlist':
                return { ...state, wishlist: [...state.wishlist, action.payload] }

@@ -11,7 +11,7 @@ const Cart = () => {
   const { state: { cart, total, totalDiscount }, setOpen, open, logged, setOpenSnack } = Context();
 
   const checkout = () => {
-    if (logged === false) {
+    if (logged.id === undefined) {
       setOpenSnack({ open: true, html: `You are not logged in! Please login first.`, severity: 'error', time: "1500" })
     } else {
       navigate('/checkout');
@@ -28,17 +28,18 @@ const Cart = () => {
           </div>
             : <div className={style.cartList}> {cart.map((val) => <CartCard val={val} key={val.id} />)} </div>}
         </div>
-        <div className={style.total}>
+        {cart.length !== 0 && <div className={style.total}>
           <div> <button className={style.clear} onClick={() => {
             setOpen({ ...open, open: true, html: "Are your to empty your cart ?", type: "empty" })
-          }}> Empty Cart </button></div>
+          }}> Empty Cart </button>
+          <Link to="/products" className={style.continueShopping}><button>Continue Shopping <i className="fa-solid fa-bag-shopping" /></button></Link></div>
           <div>
-            <h1> SubTotal: ₹{total+totalDiscount} </h1>
+            <h1> SubTotal: ₹{Number(total)+Number(totalDiscount)} </h1>
             <h1> Discount: ₹ {totalDiscount}</h1>
             <h1>Total: ₹{total}</h1>
             <button className={style.checkout} onClick={checkout}> Checkout </button>
           </div>
-        </div>
+        </div>}
       </div>
     </>
   )

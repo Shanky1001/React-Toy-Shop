@@ -52,10 +52,12 @@ function App() {
   const confirm = () => {
     if (open.type === 'trash') {
       dispatch({
-        type: "removeFromCart", payload: open.value
+        type: "removeFromCart", payload: {
+          id:open.value.id,discount:state.totalDiscount-1,total:state.total-open.value.price
+        }
       })
       setOpen({ ...open, open: false });
-      setOpenSnack({ open: true, html: `${open.value.strMeal} removed from cart !` })
+      setOpenSnack({ open: true, html: `${open.value.title} removed from cart !` })
     }
     if (open.type === 'empty') {
       dispatch({
