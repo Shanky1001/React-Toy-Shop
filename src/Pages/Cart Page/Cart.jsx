@@ -1,8 +1,46 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { Context } from '../../App';
+import EmptyCart from '../../Assests/EmptyCart.png'
+import CartCard from '../../Components/common Components/Cart Cards/CartCard';
+import style from './Cart.module.css'
 
 const Cart = () => {
+  const navigate = useNavigate();
+
+  const { state: { cart, total, totalDiscount }, setOpen, open, logged, setOpenSnack } = Context();
+
+  const checkout = () => {
+    if (logged === false) {
+      setOpenSnack({ open: true, html: `You are not logged in! Please login first.`, severity: 'error', time: "1500" })
+    } else {
+      navigate('/checkout');
+    }
+  }
   return (
-    <div>Cart</div>
+    <>
+      <div className={style.cartContainer}>
+        <h1> Items in your cart - ({cart.length}) </h1>
+        <div className={style.cartListContainer}>
+          {cart.length === 0 ? <div className={style.emptyCartContainer}>
+            <img src={EmptyCart} alt='Empty Cart' />
+            <Link to="/products" className={style.continueShopping}><button>Continue Shopping <i className="fa-solid fa-bag-shopping" /></button></Link>
+          </div>
+            : <div className={style.cartList}> {cart.map((val) => <CartCard val={val} key={val.id} />)} </div>}
+        </div>
+        <div className={style.total}>
+          <div> <button className={style.clear} onClick={() => {
+            setOpen({ ...open, open: true, html: "Are your to empty your cart ?", type: "empty" })
+          }}> Empty Cart </button></div>
+          <div>
+            <h1> SubTotal: ₹{total+totalDiscount} </h1>
+            <h1> Discount: ₹ {totalDiscount}</h1>
+            <h1>Total: ₹{total}</h1>
+            <button className={style.checkout} onClick={checkout}> Checkout </button>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 

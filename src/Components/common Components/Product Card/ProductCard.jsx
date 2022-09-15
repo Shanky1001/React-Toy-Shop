@@ -39,7 +39,8 @@ const ProductCard = ({ val }) => {
       }}>  <ShoppingBag sx={{ fontSize: "25px" }} />  <Typography variant='h6' fontSize={'18px'} > Remove from bag </Typography> </button> : <button className={style.bag} onClick={() => {
         dispatch({
           type: "addToCart", payload: {
-            val: val, discount: totalDiscount + (discount - val.price)
+            val: val, discount: totalDiscount + (discount - val.price),
+            total:total + val.price
           }
         })
         setOpenSnack({ open: true, html: `${val.title} is added to cart`, severity: "success", time: "1000" })
