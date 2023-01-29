@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import style from './Sign.module.css'
+import React, { useState } from 'react';
+import style from './Sign.module.css';
 import { useNavigate } from 'react-router-dom';
 
-import data from '../users.json'
+import data from '../users.json';
 import { Context } from '../../App';
 const Sign = () => {
 
@@ -10,7 +10,7 @@ const Sign = () => {
   const { setLogged, setOpenSnack } = Context();
   const [formData, setFormData] = useState({
      name: "",email: "", pass: "", repass: ""
-  })
+  });
 
   const change = (e)=>{
     let value = e.target.value;
