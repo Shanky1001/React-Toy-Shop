@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
-import style from './Login.module.css'
-import data from '../users.json'
+import React, { useState } from 'react';
+import style from './Login.module.css';
+import data from '../users.json';
 import { Context } from '../../App';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
 
   const navigate = useNavigate();
-  const { setLogged, setOpenSnack } = Context()
+  const { setLogged, setOpenSnack } = Context();
   const [formData, setFormData] = useState({
     email: "", pass: ""
-  })
+  });
+
   const log = (e) => {
     let value = e.target.value;
     let name = e.target.name;
     setFormData({ ...formData, [name]: value });
   }
+
   const validation = (e) => {
     e.preventDefault();
     if (formData.email === "" || formData.pass === "") {
