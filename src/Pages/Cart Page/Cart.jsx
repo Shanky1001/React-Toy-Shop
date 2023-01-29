@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../../App';
-import EmptyCart from '../../Assests/EmptyCart.png'
+import EmptyCart from '../../Assests/EmptyCart.png';
 import CartCard from '../../Components/common Components/Cart Cards/CartCard';
-import style from './Cart.module.css'
+import style from './Cart.module.css';
 
 const Cart = () => {
   const navigate = useNavigate();
