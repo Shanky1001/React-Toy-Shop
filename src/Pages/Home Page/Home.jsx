@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material';
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Context } from '../../App';
 import ProductCard from '../../Components/common Components/Product Card/ProductCard';
-import video from '../../Assests/video.mp4'
-import styles from './Home.module.css'
+import video from '../../Assests/video.mp4';
+import styles from './Home.module.css';
 import { Adjust } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
