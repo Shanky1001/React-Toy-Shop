@@ -1,6 +1,6 @@
-import React from 'react'
-import { Context } from '../../App'
-import style from './Checkout.module.css'
+import React from 'react';
+import { Context } from '../../App';
+import style from './Checkout.module.css';
 
 const Checkout = () => {
   const { state: { cart, totalDiscount, total }, logged } = Context()
