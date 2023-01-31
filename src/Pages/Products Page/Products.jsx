@@ -1,11 +1,11 @@
 import { Search } from '@mui/icons-material';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputAdornment, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useState } from 'react'
-import { Context } from '../../App'
+import React, { useState } from 'react';
+import { Context } from '../../App';
 import ProductCard from '../../Components/common Components/Product Card/ProductCard';
-import style from './Product.module.css'
-import NoProductIMG from '../../Assests/noProduct.png'
+import style from './Product.module.css';
+import NoProductIMG from '../../Assests/noProduct.png';
 
 
 const Products = () => {
