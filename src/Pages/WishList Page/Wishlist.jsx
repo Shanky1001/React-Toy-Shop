@@ -1,13 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { Context } from '../../App';
 import ProductCard from '../../Components/common Components/Product Card/ProductCard';
-import style from './wishlist.module.css'
-import NoProductIMG from '../../Assests/noProduct.png'
+import style from './wishlist.module.css';
+import NoProductIMG from '../../Assests/noProduct.png';
 import { useNavigate } from 'react-router-dom';
 import { Forward } from '@mui/icons-material';
+
 const Wishlist = () => {
+  
   const { state: { wishlist },dispatch, logged } = Context();
   const navigate = useNavigate();
+  
   return (
     <div className={style.wishlistContainer}>
       <h1> {logged.id > 0 ? `${logged.name}'s Wishlist ` : "Your Wishlist"} </h1>
