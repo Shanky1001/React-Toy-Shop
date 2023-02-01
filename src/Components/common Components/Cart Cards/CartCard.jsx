@@ -1,9 +1,9 @@
 
 import { DeleteForever } from '@mui/icons-material';
-import { Tooltip } from '@mui/material'
-import React from 'react'
+import { Tooltip } from '@mui/material';
+import React from 'react';
 import { Context } from '../../../App';
-import style from './CartCard.module.css'
+import style from './CartCard.module.css';
 
 
 const CartCard = ({ val }) => {
