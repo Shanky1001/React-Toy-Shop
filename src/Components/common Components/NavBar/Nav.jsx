@@ -3,15 +3,15 @@ import { Badge, Tooltip, Typography } from '@mui/material';
 import React, { memo, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { Context } from '../../../App';
-import Style from './Nav.module.css'
-import '../../../App.css'
+import Style from './Nav.module.css';
+import '../../../App.css';
 
 
 const Nav = () => {
   const { state: { cart, wishlist }, logged, setLogged } = Context();
 
   const [toggle, setToggle] = useState(false);
-  const [theme, setTheme] = useState(false)
+  const [theme, setTheme] = useState(false);
 
   // NavBar hiding Function
   const hideNav = () => {
@@ -21,7 +21,7 @@ const Nav = () => {
   const dark = () => {
     document.querySelector(".App").classList.toggle("darkTheme");
     hideNav();
-    setTheme(!theme)
+    setTheme(!theme);
   }
 
   return (
