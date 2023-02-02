@@ -1,8 +1,8 @@
-import { Favorite, ShoppingBag } from '@mui/icons-material'
+import { Favorite, ShoppingBag } from '@mui/icons-material';
 import { Typography } from '@mui/material';
-import React, { memo, useLayoutEffect, useState } from 'react'
+import React, { memo, useLayoutEffect, useState } from 'react';
 import { Context } from '../../../App';
-import style from './ProductCard.module.css'
+import style from './ProductCard.module.css';
 
 
 const ProductCard = ({ val }) => {
