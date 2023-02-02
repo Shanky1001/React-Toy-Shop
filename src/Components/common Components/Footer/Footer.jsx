@@ -1,10 +1,10 @@
-import { Mail, Phone } from '@mui/icons-material'
-import { Tooltip } from '@mui/material'
-import React, { useState } from 'react'
-import style from './Footer.module.css'
+import { Mail, Phone } from '@mui/icons-material';
+import { Tooltip } from '@mui/material';
+import React, { useState } from 'react';
+import style from './Footer.module.css';
 
 const Footer = () => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   const visibility = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -21,7 +21,7 @@ const Footer = () => {
       behavior: 'smooth'
     });
   };
-  window.addEventListener('scroll', visibility)
+  window.addEventListener('scroll', visibility);
 
   return (
     <div className={style.footerContainer}>
